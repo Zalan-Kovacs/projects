@@ -1,0 +1,11 @@
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\bin\Debug\net8.0\Escape.deps.json
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\bin\Debug\net8.0\Escape.dll
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\bin\Debug\net8.0\Escape.pdb
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\Escape.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\Escape.AssemblyInfoInputs.cache
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\Escape.AssemblyInfo.cs
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\Escape.csproj.CoreCompileInputs.cache
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\Escape.dll
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\refint\Escape.dll
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\Escape.pdb
+C:\Users\zalan\OneDrive\Dokumentumok\Projektek\Escape WPF\Escape\obj\Debug\net8.0\ref\Escape.dll
