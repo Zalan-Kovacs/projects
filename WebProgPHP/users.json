@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Admin Admin",
+        "email": "admin@ikarrental.hu",
+        "password": "$2y$12$.Ha\/1\/LK\/WiCJ12G\/uaYp.gHaLVpyS6vP4rpv3fWnLVAUI4\/r.uC2",
+        "admin": true,
+        "passwordforTest": "adminadmin"
+    }
+]
