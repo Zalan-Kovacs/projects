@@ -1,0 +1,98 @@
+﻿<Window 
+        x:Class="Escape.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Escape.WPF"
+        mc:Ignorable="d"
+        Title="Escape" Height="1000" Width="950"
+        KeyDown="Window_KeyDown">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,18">
+            <MenuItem Header="File">
+                <MenuItem Header="New game" Command="{Binding NewGameCommand}" />
+                <Separator />
+                <MenuItem Header="Load game..." Command="{Binding LoadGameCommand}" />
+                <MenuItem Header="Save game..." Command="{Binding SaveGameCommand}" IsEnabled="{Binding IsPaused}"/>
+                <Separator />
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+            <MenuItem Header="Settings">
+                <MenuItem Header="Easy game" IsCheckable="True" IsChecked="{Binding IsGameEasy}" />
+                <MenuItem Header="Normal game" IsCheckable="True" IsChecked="{Binding IsGameMedium}" />
+                <MenuItem Header="hard game" IsCheckable="True" IsChecked="{Binding IsGameHard}" />
+            </MenuItem>
+            <MenuItem Header="Pause" Command="{Binding PauseCommand}" />
+        </Menu>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding GameBoard}">
+            <!--az mezőket tároló vezérlő-->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!--a gombokat egy rácsba fűzzük fel-->
+                    <UniformGrid Rows="{Binding TableSize}" Columns="{Binding TableSize}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <!--az elemek gombok lesznek-->
+                <DataTemplate>
+                    <Button Command="{Binding StepCommand}" Focusable="False" RenderTransformOrigin="0.5, 0.5" FontSize="24" FontWeight="Bold">
+                        <!-- gomb háttérszíne -->
+                        <!-- gomb méretezése (csak az animációnál használjuk ki) -->
+                        <Button.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </Button.RenderTransform>
+                        <Button.Style>
+                            <!-- gomb stílusa, ahol a színét megadjuk -->
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <!-- a szín egy adatkötés hatására fog változni -->
+
+                                    <DataTrigger Binding="{Binding Color}" Value="gray">
+                                        <Setter Property="Background" Value="LightGray" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Color}" Value="yellow">
+                                        <Setter Property="Background" Value="Yellow" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Color}" Value="black">
+                                        <Setter Property="Background" Value="Black" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Color}" Value="red">
+                                        <Setter Property="Background" Value="Red" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Color}" Value="purple">
+                                        <Setter Property="Background" Value="Purple" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <!--a függőségi tulajdonságokat külön kell kötnünk-->
+                <Style>
+                    <Setter Property="Grid.Row" Value="{Binding X}" />
+                    <Setter Property="Grid.Column" Value="{Binding Y}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock Text="Játékidő: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding GameTime}" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem />
+        </StatusBar>
+    </Grid>
+</Window>
